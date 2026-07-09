@@ -1,2 +1,9 @@
-NOTES - Taken from ao3_parser_play
-- might consider adding author notes since in some stories, they provide context to the setting. For now, I won't add them because I want things to look extra polished and neat
+NOTES - on Flask/Jinja
+- Flask expects templates inside a folder names exactly 'templates'.
+  You need to make a new directory with said name for it to work!!
+- Placeholders need to be in double curly braces in the html file in order for jinja to know it needs to replace values
+
+NEED TO DO:
+- Relationship(s) when more than one
+- Consider adding author notes. Omitted for now
+- Fix chapter displays

@@ -1,3 +1,12 @@
+"""
+Contains helper functions needed to parse AO3 works
+
+Responsibilities:
+
+
+Future goals:
+"""
+
 from pathlib import Path
 from bs4 import BeautifulSoup
 
@@ -66,7 +75,7 @@ def extract_chapters(soup):
         paragraphs = [p.get_text(strip=True) for p in content_div.find_all("p")]
 
         chapters_list.append({
-            "title": "One-shot",
+            "title": " ",
             "paragraphs": paragraphs
         })
         return chapters_list
@@ -100,9 +109,10 @@ def parse_work(soup):
         "tags": extract_tags(soup),
         "summary": extract_summary(soup),
         "chapters": extract_chapters(soup),
+        "paragraphs": extract_paragraphs(soup) #
     }
 
-work = load_soup("works/Never_knew_it.html")
+work = load_soup("works/Broooooo.html")
 data = parse_work(work)
 
 # title, author
@@ -122,13 +132,15 @@ for p in data["summary"]:
 
 print()
 
+
 #chapters
 chapters = data["chapters"]
 print(f"Chapters found: {len(chapters)}\n")
 
 for i, chapter in enumerate(chapters, start=1):
-    print(f"{i}. {chapter['title']}")
+    print(f"{chapter['title']}")
     print(f"Paragraphs: {len(chapter['paragraphs'])}")
     print("-" * 40)
 
-
+for p in data["paragraphs"]: #
+    print(p) #
